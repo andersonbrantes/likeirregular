@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { View } from 'react-native';
 import { Container, Header, Content, Title, Footer, FooterTab, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
 import { TipsBlock } from './components/TipsBlock';
+import { MainProgress } from './components/MainProgress';
 
 export default class App extends Component {
   constructor() {
@@ -42,9 +43,17 @@ export default class App extends Component {
           </Body>
           <Right />
         </Header>
-        <Content>
-          <TipsBlock />       
-        </Content>        
+        
+        <Content style={{ padding: 10 }}>
+          <MainProgress />
+          
+          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection:'row' }}>
+            <Button primary><Text> Primary </Text></Button>
+          </View>
+
+          <TipsBlock />
+        </Content>    
+
         <Footer>
           <FooterTab>
             <Button full>

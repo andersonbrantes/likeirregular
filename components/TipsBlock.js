@@ -6,7 +6,7 @@ export class TipsBlock extends Component {
 
   render() {
     return (
-      <Card>
+      <Card style={{ marginTop: 50 }}>
         <CardItem>
           <Left>
             <Thumbnail source={{uri: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&imgrefurl=https://www.pexels.com/search/nature/&docid=ShwNVOdFBcmkxM&tbnid=8c_UAo3gH_220M:&vet=1&w=500&h=200&source=sh/x/im'}} />
