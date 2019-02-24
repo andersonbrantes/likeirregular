@@ -4,6 +4,7 @@ import { Container, Header, Content, Title, Footer, FooterTab, Text, Button, Ico
 
 import { TipsBlock } from './components/TipsBlock';
 import { MainProgress } from './components/MainProgress';
+import { AnswerBlock } from './components/AnswerBlock';
 
 export default class App extends Component {
   constructor() {
@@ -51,7 +52,8 @@ export default class App extends Component {
             <Button primary><Text> Primary </Text></Button>
           </View>
 
-          <TipsBlock />
+          <AnswerBlock />
+          {/* <TipsBlock /> */}
         </Content>    
 
         <Footer>

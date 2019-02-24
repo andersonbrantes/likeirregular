@@ -11,27 +11,29 @@ export class MainProgress extends Component {
       visibleModal: null,
       fill: 75 // %
     };
+  }
 
-    render() {
-        return (
-          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection:'row', marginTop: 80, marginBottom: 50 }}>
-            <AnimatedCircularProgress
-              size={120}
-              width={15}
-              fill={this.state.fill}
-              tintColor="#00e0ff"
-              onAnimationComplete={() => console.log('onAnimationComplete')}
-              backgroundColor="#3d5875"
-            >
-              {
-                (fill) => (
-                  <Text>
-                    { this.state.fill }
-                  </Text>
-                )
-              }
-            </AnimatedCircularProgress>
-          </View>            
-        )
-    }
+  
+  render() {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection:'row', marginTop: 80, marginBottom: 50 }}>
+        <AnimatedCircularProgress
+          size={120}
+          width={15}
+          fill={this.state.fill}
+          tintColor="#00e0ff"
+          onAnimationComplete={() => console.log('onAnimationComplete')}
+          backgroundColor="#3d5875"
+        >
+          {
+            (fill) => (
+              <Text>
+                { this.state.fill }
+              </Text>
+            )
+          }
+        </AnimatedCircularProgress>
+      </View>            
+    )
+  }
 }
