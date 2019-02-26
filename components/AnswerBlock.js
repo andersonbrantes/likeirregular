@@ -9,6 +9,10 @@ const activeVerbs = verbs;
 export class AnswerBlock extends Component {
     constructor (props) {
         super(props);
+
+        this.state = {
+            activeVerb: this._getVerb()
+        }
     }
 
     _getVerb() {
@@ -17,11 +21,26 @@ export class AnswerBlock extends Component {
         return selectedItem
     }
 
+    _hiddenItem() {
+        const item = this.state.activeVerb;
+
+        const verbTense = ['infinitive', 'simplePast', 'pastParticiple'];
+        const selectedTense = verbTense.splice(Math.floor(Math.random()*verbTense.length), 1)[0];
+
+        const selectedItem = [ selectedTense, item[selectedTense]];
+
+        return selectedItem;
+    }
+
     render() {
-        const item = this._getVerb();
+        const item = this.state.activeVerb;
 
         return (
             <View>
+                {
+                    <Text>{ this._hiddenItem() }</Text>
+                }
+                
                 { 
                     <Text>{item.infinitive} / {item.simplePast} / {item.pastParticiple}</Text>
                 }

@@ -1,4 +1,4 @@
-export const verbs  = [
+export const verbs = [
     {
         infinitive: 'awake',
         simplePast: 'awoke',
