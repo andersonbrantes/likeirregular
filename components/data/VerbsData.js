@@ -6,7 +6,7 @@ export const verbs = [
     },
     {
         infinitive: 'be',
-        simplePast: ' was',
+        simplePast: 'was',
         pastParticiple: 'been'
     },
     {

@@ -9,7 +9,7 @@ export class MainProgress extends Component {
 
     this.state = {
       visibleModal: null,
-      fill: 75 // %
+      fill: 85 // %
     };
   }
 

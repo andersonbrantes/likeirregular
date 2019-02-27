@@ -59,7 +59,7 @@ export default class App extends Component {
         <Footer>
           <FooterTab>
             <Button full>
-              <Text>Footer</Text>
+              <Text>LikeIrregular</Text>
             </Button>
           </FooterTab>
         </Footer>

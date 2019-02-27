@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Text } from 'native-base';
+import { Text, Input } from 'native-base';
 
 import { verbs } from './data/VerbsData';
 
@@ -11,47 +11,50 @@ export class AnswerBlock extends Component {
         super(props);
 
         this.state = {
-            activeVerb: this._getVerb()
+            activeVerb: this.getVerb()
         }
     }
 
-    _getVerb() {
+    getVerb() {
         const selectedItem = activeVerbs.splice(Math.floor(Math.random()*activeVerbs.length), 1)[0];
 
         return selectedItem
     }
 
-    _hiddenItem() {
-        const item = this.state.activeVerb;
-
-        const verbTense = ['infinitive', 'simplePast', 'pastParticiple'];
+    hiddenItem() {
+        const item          = this.state.activeVerb;
+        const verbTense     = ['infinitive', 'simplePast', 'pastParticiple'];
         const selectedTense = verbTense.splice(Math.floor(Math.random()*verbTense.length), 1)[0];
-
-        const selectedItem = [ selectedTense, item[selectedTense]];
+        const selectedItem  = [ selectedTense, item[selectedTense]];
 
         return selectedItem;
     }
 
     render() {
-        const item = this.state.activeVerb;
+        const activeVerb = this.state.activeVerb;
+        const activeVerbTense = this.hiddenItem()[0];
 
         return (
             <View>
                 {
-                    <Text>{ this._hiddenItem() }</Text>
-                }
-                
-                { 
-                    <Text>{item.infinitive} / {item.simplePast} / {item.pastParticiple}</Text>
-                }
+                    <Text>{ this.hiddenItem() }</Text>
+                }                
 
-{/*                 {
-                    this.state.activeVerbs.map( (v, i) => {
-                        return <View key={i}>
-                            <Text>{v.infinitive} / {v.simplePast} / {v.pastParticiple}</Text>
-                        </View>
+                {
+                    Object.keys(activeVerb).map( (key) => {
+                        const hiddenVerb = key === activeVerbTense
+
+                        return (                            
+                            <View key={key}>
+                            {
+                                hiddenVerb ?
+                                ( <Input placeholder="Username" /> ) :
+                                ( <Text>{ activeVerb[key] }</Text> )
+                            }                                                                
+                            </View>
+                        )
                     })
-                } */}
+                }
             </View>
         )
     }
