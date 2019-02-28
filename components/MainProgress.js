@@ -12,7 +12,6 @@ export class MainProgress extends Component {
       fill: 85 // %
     };
   }
-
   
   render() {
     return (
