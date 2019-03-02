@@ -14,8 +14,11 @@ export class MatchBlock extends Component {
   verbMatched() {
     const sentText   = this.state.sentText;
     const targetVerb = this.props.target;
+    const result     = sentText === targetVerb;
 
-    return sentText == targetVerb;
+    this.props.hitOrMiss(result);
+
+    return result;
   }
 
   render() {

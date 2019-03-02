@@ -5,12 +5,16 @@ import { Container, Header, Content, Title, Footer, FooterTab, Text, Button, Ico
 import { TipsBlock } from './components/TipsBlock';
 import { MainProgress } from './components/MainProgress';
 import { AnswerBlock } from './components/AnswerBlock';
+import { HitVerbs } from './components/HitVerbs';
+import { LostVerbs } from './components/LostVerbs';
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      isReady: false
+      isReady: false,
+      lostVerbs: 0,
+      hitVerbs: 0
     };
   }
 
@@ -24,6 +28,14 @@ export default class App extends Component {
       Roboto_medium: require("./node_modules/native-base/Fonts/Roboto_medium.ttf"),
     });
     this.setState({ isReady: true });
+  }
+
+  hitOrMiss(result) {
+    if (result == true) {
+      this.setState({ hitVerbs: this.state.hitVerbs + 1 });
+    } else {
+      this.setState({ lostVerbs: this.state.lostVerbs + 1 });
+    }
   }
 
   render() {
@@ -46,13 +58,19 @@ export default class App extends Component {
         </Header>
         
         <Content style={{ padding: 10 }}>
-          <MainProgress />
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
+            <LostVerbs lost={ this.state.lostVerbs } />            
+
+            <MainProgress />
+
+            <HitVerbs hit={ this.state.hitVerbs } />
+          </View>
           
           <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection:'row' }}>
             <Button primary><Text> Primary </Text></Button>
           </View>
 
-          <AnswerBlock />
+          <AnswerBlock hitOrMiss={ (r) => this.hitOrMiss(r) } />
           {/* <TipsBlock /> */}
         </Content>    
 

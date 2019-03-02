@@ -50,7 +50,7 @@ export class AnswerBlock extends Component {
               <View key={key}>
               {
                 hiddenVerb ?
-                ( <MatchBlock target={ activeVerb[key] } /> ) :
+                ( <MatchBlock target={ activeVerb[key] } hitOrMiss={ (r) => this.props.hitOrMiss(r) } /> ) :
                 ( <Text>{ activeVerb[key] }</Text> )
               }                                                                
               </View>
