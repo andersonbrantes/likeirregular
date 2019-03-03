@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Text, Input, Button } from 'native-base';
+import React, { Component } from "react";
+import { View } from "react-native";
+import { Text, Input, Button } from "native-base";
 
 export class MatchBlock extends Component {
   constructor(props){
     super(props)
   
     this.state = {
-      sentText: ''
+      sentText: ""
     }
   }
 

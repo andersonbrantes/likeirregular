@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Container, Header, Content, Title, Footer, FooterTab, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import React, { Component } from "react";
+import { View } from "react-native";
+import { Container, Header, Content, Title, Footer, FooterTab, Text, Button, Icon, Left, Body, Right } from "native-base";
 
-import { TipsBlock } from './components/TipsBlock';
-import { MainProgress } from './components/MainProgress';
-import { AnswerBlock } from './components/AnswerBlock';
-import { HitVerbs } from './components/HitVerbs';
-import { LostVerbs } from './components/LostVerbs';
+import { TipsBlock } from "./components/TipsBlock";
+import { MainProgress } from "./components/MainProgress";
+import { AnswerBlock } from "./components/AnswerBlock";
+import { HitVerbs } from "./components/HitVerbs";
+import { LostVerbs } from "./components/LostVerbs";
+
+import { verbs } from "./data/VerbsData";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      activeVerbs: verbs,
+      activeVerb: "",
       isReady: false,
       lostVerbs: 0,
       hitVerbs: 0
@@ -20,6 +24,7 @@ export default class App extends Component {
 
   componentWillMount() {
     this.loadFonts();
+    this.getVerb();
   }
   
   async loadFonts() {
@@ -28,6 +33,20 @@ export default class App extends Component {
       Roboto_medium: require("./node_modules/native-base/Fonts/Roboto_medium.ttf"),
     });
     this.setState({ isReady: true });
+  }
+
+  getVerb() {   
+    const selectedItem = this.state.activeVerbs.splice(Math.floor(Math.random()*this.state.activeVerbs.length), 1)[0];
+
+    this.setState({
+      activeVerb: selectedItem
+    });
+  }
+
+  updateVerbs(verbsArray) {
+    this.setState({
+      activeVerbs: verbsArray
+    })
   }
 
   hitOrMiss(result) {
@@ -67,10 +86,15 @@ export default class App extends Component {
           </View>
           
           <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection:'row' }}>
-            <Button primary><Text> Primary </Text></Button>
+            <Button onPress={() => this.getVerb() } primary><Text> Primary </Text></Button>
           </View>
 
-          <AnswerBlock hitOrMiss={ (r) => this.hitOrMiss(r) } />
+          <AnswerBlock
+            activeVerbs={ this.state.activeVerbs }
+            activeVerb={ this.state.activeVerb }
+            updateVerbs={ (v) => this.updateVerbs(v)}
+            hitOrMiss={ (r) => this.hitOrMiss(r) }
+          />
           {/* <TipsBlock /> */}
         </Content>    
 
