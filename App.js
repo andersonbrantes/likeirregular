@@ -67,7 +67,7 @@ export default class App extends Component {
         <Header>
           <Left>
             <Button transparent>
-              <Icon name='menu' />
+              <Icon name="menu" />
             </Button>
           </Left>
           <Body>
@@ -77,7 +77,7 @@ export default class App extends Component {
         </Header>
         
         <Content style={{ padding: 10 }}>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
+          <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
             <LostVerbs lost={ this.state.lostVerbs } />            
 
             <MainProgress />
@@ -85,7 +85,7 @@ export default class App extends Component {
             <HitVerbs hit={ this.state.hitVerbs } />
           </View>
           
-          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection:'row' }}>
+          <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection:"row" }}>
             <Button onPress={() => this.getVerb() } primary><Text> Primary </Text></Button>
           </View>
 

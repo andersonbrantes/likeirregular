@@ -9,6 +9,6 @@ export class HitVerbs extends Component {
       <View>
         <Text style={{ color: "green" }}>{ this.props.hit }</Text>
       </View>
-    )
+    );
   }
 }

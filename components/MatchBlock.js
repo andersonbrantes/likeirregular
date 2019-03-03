@@ -8,7 +8,7 @@ export class MatchBlock extends Component {
   
     this.state = {
       sentText: ""
-    }
+    };
   }
 
   verbMatched() {
@@ -37,6 +37,6 @@ export class MatchBlock extends Component {
           <Text> Tap to Check </Text>
         </Button>
       </View>
-    )
+    );
   }
 }

@@ -9,6 +9,6 @@ export class LostVerbs extends Component {
       <View>
         <Text style={{ color: "red" }}>{ this.props.lost }</Text>
       </View> 
-    )
+    );
   }
 }

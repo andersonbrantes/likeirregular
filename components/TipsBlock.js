@@ -37,6 +37,6 @@ export class TipsBlock extends Component {
           </Right>
         </CardItem>
       </Card>
-    )
+    );
   }
 }

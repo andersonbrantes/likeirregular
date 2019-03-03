@@ -11,7 +11,7 @@ export class AnswerBlock extends Component {
 
   hiddenItem() {
     const item          = this.props.activeVerb;
-    const verbTense     = ['infinitive', 'simplePast', 'pastParticiple'];
+    const verbTense     = ["infinitive", "simplePast", "pastParticiple"];
     const selectedTense = verbTense.splice(Math.floor(Math.random()*verbTense.length), 1)[0];
     const selectedItem  = [ selectedTense, item[selectedTense]];
 
@@ -49,6 +49,6 @@ export class AnswerBlock extends Component {
           })
         }
       </View>
-    )
+    );
   }
 }

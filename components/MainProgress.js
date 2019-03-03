@@ -33,6 +33,6 @@ export class MainProgress extends Component {
           }
         </AnimatedCircularProgress>
       </View>            
-    )
+    );
   }
 }
