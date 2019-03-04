@@ -80,7 +80,7 @@ export default class App extends Component {
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
             <LostVerbs lost={ this.state.lostVerbs } />            
 
-            <MainProgress />
+            <MainProgress remainingVerbs={ this.state.activeVerbs.length } />
 
             <HitVerbs hit={ this.state.hitVerbs } />
           </View>

@@ -9,7 +9,7 @@ export class MainProgress extends Component {
 
     this.state = {
       visibleModal: null,
-      fill: 85 // %
+      totalVerbs: this.props.remainingVerbs
     };
   }
   
@@ -17,9 +17,9 @@ export class MainProgress extends Component {
     return (
       <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection:"row", marginTop: 80, marginBottom: 50 }}>
         <AnimatedCircularProgress
-          size={120}
-          width={15}
-          fill={this.state.fill}
+          size={150}
+          width={10}
+          fill={ (this.props.remainingVerbs / this.state.totalVerbs) * 100}
           tintColor="#00e0ff"
           onAnimationComplete={() => console.log("onAnimationComplete")}
           backgroundColor="#3d5875"
@@ -27,7 +27,7 @@ export class MainProgress extends Component {
           {
             (fill) => (
               <Text>
-                { this.state.fill }
+                { this.props.remainingVerbs }
               </Text>
             )
           }

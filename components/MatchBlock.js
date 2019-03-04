@@ -12,8 +12,8 @@ export class MatchBlock extends Component {
   }
 
   verbMatched() {
-    const sentText   = this.state.sentText;
-    const targetVerb = this.props.target;
+    const sentText   = this.state.sentText.toUpperCase();
+    const targetVerb = this.props.target.toUpperCase();
     const result     = sentText === targetVerb;
 
     this.props.hitOrMiss(result);
@@ -23,7 +23,7 @@ export class MatchBlock extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
         <Input
           placeholder="Username"
           onChangeText={ (text) => this.setState({ sentText: text }) }
