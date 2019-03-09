@@ -46,7 +46,7 @@ export default class App extends Component {
   updateVerbs(verbsArray) {
     this.setState({
       activeVerbs: verbsArray
-    })
+    });
   }
 
   hitOrMiss(result) {
@@ -73,7 +73,11 @@ export default class App extends Component {
           <Body>
             <Title>Header</Title>
           </Body>
-          <Right />
+          <Right>
+            <Button transparent>
+              <Icon name="menu" />
+            </Button>            
+          </Right>
         </Header>
         
         <Content style={{ padding: 10 }}>
@@ -86,7 +90,7 @@ export default class App extends Component {
           </View>
           
           <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection:"row" }}>
-            <Button onPress={() => this.getVerb() } primary><Text> Primary </Text></Button>
+            <Button onPress={() => this.getVerb() } rounded primary><Text> NEXT </Text></Button>
           </View>
 
           <AnswerBlock

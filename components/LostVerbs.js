@@ -7,7 +7,7 @@ export class LostVerbs extends Component {
   render() {
     return (
       <View>
-        <Text style={{ color: "red" }}>{ this.props.lost }</Text>
+        <Text style={{ color: "red", fontSize: 40 }}>{ this.props.lost }</Text>
       </View> 
     );
   }

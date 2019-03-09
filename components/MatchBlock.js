@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Text, Input, Button } from "native-base";
 
 export class MatchBlock extends Component {
   constructor(props){
-    super(props)
+    super(props);
   
     this.state = {
       sentText: ""
@@ -25,11 +25,10 @@ export class MatchBlock extends Component {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
         <Input
-          placeholder="Username"
+          placeholder={ this.props.target }
           onChangeText={ (text) => this.setState({ sentText: text }) }
+          style={styles.guessVerb}
         />
-
-        <Text>{ this.props.target }</Text>
 
         <Button
           onPress={() => this.verbMatched() }
@@ -40,3 +39,15 @@ export class MatchBlock extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  guessVerb: {
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#999",
+    margin: 10,
+    padding: 10,
+    fontSize: 25,
+    textTransform: "uppercase"    
+  }
+});

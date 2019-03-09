@@ -7,7 +7,7 @@ export class HitVerbs extends Component {
   render() {
     return (
       <View>
-        <Text style={{ color: "green" }}>{ this.props.hit }</Text>
+        <Text style={{ color: "green", fontSize: 40 }}>{ this.props.hit }</Text>
       </View>
     );
   }

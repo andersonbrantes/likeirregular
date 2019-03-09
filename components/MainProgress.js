@@ -26,7 +26,7 @@ export class MainProgress extends Component {
         >
           {
             (fill) => (
-              <Text>
+              <Text style={{ fontSize: 40 }} >
                 { this.props.remainingVerbs }
               </Text>
             )

@@ -15,7 +15,7 @@ export const verbs = [
     pastParticiple: "beaten"
 
   }
-]
+];
   
 export default {
   verbs

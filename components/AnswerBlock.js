@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Text, Input } from "native-base";
 
 import { MatchBlock } from "../components/MatchBlock";
@@ -19,14 +19,14 @@ export class AnswerBlock extends Component {
   }
 
   render() {
-    const activeVerb = this.props.activeVerb
+    const activeVerb = this.props.activeVerb;
     const activeVerbTense = this.hiddenItem()[0];
 
     return (
-      <View>              
+      <View style={{marginTop: 30}}>              
         {
           Object.keys(activeVerb).map( (key) => {
-            const hiddenVerb = key === activeVerbTense
+            const hiddenVerb = key === activeVerbTense;
 
             return (                            
               <View key={key}>
@@ -38,13 +38,25 @@ export class AnswerBlock extends Component {
                     hitOrMiss={ (r) => this.props.hitOrMiss(r) }
                   />
                 ) :
-                ( <Text>{ activeVerb[key] }</Text> )
+                ( <Text style={styles.showVerb} >{ activeVerb[key].toUpperCase() }</Text> )
               }                                                                
               </View>
-            )
+            );
           })
         }
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  showVerb: {
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#999",
+    margin: 10,
+    padding: 10,
+    fontSize: 25,
+    textTransform: "uppercase"
+  }
+});
