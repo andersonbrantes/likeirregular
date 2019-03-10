@@ -36,6 +36,10 @@ export default class App extends Component {
   }
 
   getVerb() {   
+    if (this.state.activeVerbs.length === 0) {
+      return false;
+    }
+
     const selectedItem = this.state.activeVerbs.splice(Math.floor(Math.random()*this.state.activeVerbs.length), 1)[0];
 
     this.setState({
@@ -98,6 +102,7 @@ export default class App extends Component {
             activeVerb={ this.state.activeVerb }
             updateVerbs={ (v) => this.updateVerbs(v)}
             hitOrMiss={ (r) => this.hitOrMiss(r) }
+            remainingVerbs={ this.state.activeVerbs.length }
           />
           {/* <TipsBlock /> */}
         </Content>    

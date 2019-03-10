@@ -23,8 +23,12 @@ export class AnswerBlock extends Component {
     const activeVerbTense = this.hiddenItem()[0];
 
     return (
-      <View style={{marginTop: 30}}>              
-        {
+      <View style={{marginTop: 30}}>    
+        {          
+          this.props.remainingVerbs === 0 ?
+          
+          <Text >The End</Text> :
+
           Object.keys(activeVerb).map( (key) => {
             const hiddenVerb = key === activeVerbTense;
 

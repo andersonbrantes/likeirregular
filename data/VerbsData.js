@@ -1,5 +1,8 @@
 export const verbs = [
   {
+    finished: 'The End'
+  },
+  {
     infinitive: "awake",
     simplePast: "awoke",
     pastParticiple: "awoken"
