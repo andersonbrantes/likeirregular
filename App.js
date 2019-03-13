@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, ImageBackground } from "react-native";
 import { Container, Header, Content, Title, Footer, FooterTab, Text, Button, Icon, Left, Body, Right } from "native-base";
 
 import { TipsBlock } from "./components/TipsBlock";
@@ -84,27 +84,32 @@ export default class App extends Component {
           </Right>
         </Header>
         
-        <Content style={{ padding: 10 }}>
-          <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
-            <LostVerbs lost={ this.state.lostVerbs } />            
+        <Content>          
+          <ImageBackground source={require('./assets/england-04.jpg')} style={{width: '100%'}}>
+            <View style={{ paddingBottom: 50, flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
+              <LostVerbs lost={ this.state.lostVerbs } />            
 
-            <MainProgress remainingVerbs={ this.state.activeVerbs.length } />
+              <MainProgress remainingVerbs={ this.state.activeVerbs.length } />
 
-            <HitVerbs hit={ this.state.hitVerbs } />
+              <HitVerbs hit={ this.state.hitVerbs } />
+            </View>
+            
+            <View style={{ marginTop: -65, flex: 1, justifyContent: "center", alignItems: "center", flexDirection:"row" }}>
+              <Button onPress={() => this.getVerb() } rounded primary><Text> NEXT ONE </Text></Button>
+            </View>
+          </ImageBackground>          
+
+          <View style={{ backgroundColor: '#fff', borderTopRightRadius: 25, borderTopLeftRadius: 25, marginTop: -21 }}>
+            <Text style={{paddingTop: 30, paddingLeft: 10, paddingRight: 10, paddingBottom: 20}}>Espaço destinado para as dicas sobre os tempos verbais. Dicas sobre como as 3 formas irão se formar.</Text>
+            <AnswerBlock
+              activeVerbs={ this.state.activeVerbs }
+              activeVerb={ this.state.activeVerb }
+              updateVerbs={ (v) => this.updateVerbs(v)}
+              hitOrMiss={ (r) => this.hitOrMiss(r) }
+              remainingVerbs={ this.state.activeVerbs.length }
+            />
+            {/* <TipsBlock /> */}
           </View>
-          
-          <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection:"row" }}>
-            <Button onPress={() => this.getVerb() } rounded primary><Text> NEXT </Text></Button>
-          </View>
-
-          <AnswerBlock
-            activeVerbs={ this.state.activeVerbs }
-            activeVerb={ this.state.activeVerb }
-            updateVerbs={ (v) => this.updateVerbs(v)}
-            hitOrMiss={ (r) => this.hitOrMiss(r) }
-            remainingVerbs={ this.state.activeVerbs.length }
-          />
-          {/* <TipsBlock /> */}
         </Content>    
 
         <Footer>
