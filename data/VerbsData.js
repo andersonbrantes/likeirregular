@@ -1,8 +1,5 @@
 export const verbs = [
   {
-    finished: 'The End'
-  },
-  {
     infinitive: "awake",
     simplePast: "awoke",
     pastParticiple: "awoken"
@@ -17,7 +14,39 @@ export const verbs = [
     simplePast: "beat",
     pastParticiple: "beaten"
 
-  }
+  },
+  {
+    infinitive: "hide",
+    simplePast: "hid",
+    pastParticiple: "hidden"
+  },
+  {
+    infinitive: "hold",
+    simplePast: "held",
+    pastParticiple: "held"
+  },
+  {
+    infinitive: "break",
+    simplePast: "broke",
+    pastParticiple: "broken"
+
+  },
+  {
+    infinitive: "build",
+    simplePast: "built",
+    pastParticiple: "built"
+  },
+  {
+    infinitive: "buy",
+    simplePast: "bought",
+    pastParticiple: "bought"
+  },
+  {
+    infinitive: "catch",
+    simplePast: "caught",
+    pastParticiple: "caught"
+
+  }    
 ];
   
 export default {

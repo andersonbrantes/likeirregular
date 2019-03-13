@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet } from "react-native";
-import { Text, Input } from "native-base";
+import { Text, Input, Left } from "native-base";
 
 import { MatchBlock } from "../components/MatchBlock";
 
@@ -24,7 +24,7 @@ export class AnswerBlock extends Component {
 
     return (
       <View style={{marginTop: 30}}>    
-        {          
+        {                    
           this.props.remainingVerbs === 0 ?
           
           <Text >The End</Text> :
@@ -42,7 +42,12 @@ export class AnswerBlock extends Component {
                     hitOrMiss={ (r) => this.props.hitOrMiss(r) }
                   />
                 ) :
-                ( <Text style={styles.showVerb} >{ activeVerb[key].toUpperCase() }</Text> )
+                ( 
+                  <View style={styles.showVerb}>
+                    <Text>Past Participle</Text>
+                    <Text>{ activeVerb[key].toUpperCase() }</Text> 
+                  </View>
+                )
               }                                                                
               </View>
             );
@@ -55,12 +60,12 @@ export class AnswerBlock extends Component {
 
 const styles = StyleSheet.create({
   showVerb: {
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "#999",
-    margin: 10,
+    backgroundColor: '#F64C73',
+    textAlign: 'center',
+    color: '#fff',
     padding: 10,
     fontSize: 25,
-    textTransform: "uppercase"
+    textTransform: "uppercase",
+    fontWeight: 'bold'
   }
 });
