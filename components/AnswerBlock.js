@@ -43,9 +43,8 @@ export class AnswerBlock extends Component {
                   />
                 ) :
                 ( 
-                  <View style={styles.showVerb}>
-                    <Text>Past Participle</Text>
-                    <Text>{ activeVerb[key].toUpperCase() }</Text> 
+                  <View style={ [styles.verbBlock,  styles.verbBlock2] }>
+                    <Text style={ styles.verbText }>{ activeVerb[key].toUpperCase() }</Text> 
                   </View>
                 )
               }                                                                
@@ -59,13 +58,27 @@ export class AnswerBlock extends Component {
 }
 
 const styles = StyleSheet.create({
-  showVerb: {
-    backgroundColor: '#F64C73',
-    textAlign: 'center',
-    color: '#fff',
-    padding: 10,
+  verbBlock: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",    
+    height: 80,
+    padding: 10
+  },
+  verbBlock1: {
+    backgroundColor: "darkturquoise",
+  },
+  verbBlock2: {
+    backgroundColor: "tomato",
+  },  
+  verbBlock3: {
+    backgroundColor: "darkslateblue",
+  },    
+  verbText: {
+    textAlign: "center",
+    color: "#fff",
     fontSize: 25,
     textTransform: "uppercase",
-    fontWeight: 'bold'
+    fontWeight: "bold"    
   }
 });

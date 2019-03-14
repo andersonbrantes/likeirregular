@@ -85,7 +85,8 @@ export default class App extends Component {
         </Header>
         
         <Content>          
-          <ImageBackground source={require('./assets/england-04.jpg')} style={{width: '100%'}}>
+          
+          <ImageBackground source={require("./assets/england-04.jpg")} style={{width: "100%"}}>
             <View style={{ paddingBottom: 50, flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
               <LostVerbs lost={ this.state.lostVerbs } />            
 
@@ -99,7 +100,7 @@ export default class App extends Component {
             </View>
           </ImageBackground>          
 
-          <View style={{ backgroundColor: '#fff', borderTopRightRadius: 25, borderTopLeftRadius: 25, marginTop: -21 }}>
+          <View style={{ backgroundColor: "#fff", borderTopRightRadius: 25, borderTopLeftRadius: 25, marginTop: -21 }}>
             <Text style={{paddingTop: 30, paddingLeft: 10, paddingRight: 10, paddingBottom: 20}}>Espaço destinado para as dicas sobre os tempos verbais. Dicas sobre como as 3 formas irão se formar.</Text>
             <AnswerBlock
               activeVerbs={ this.state.activeVerbs }

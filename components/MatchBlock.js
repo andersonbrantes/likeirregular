@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TextInput } from "react-native";
+TextInput.defaultProps.selectionColor = 'white';
+
 import { Text, Input, Button } from "native-base";
 
 export class MatchBlock extends Component {
@@ -9,6 +11,10 @@ export class MatchBlock extends Component {
     this.state = {
       sentText: ""
     };
+  }
+
+  componentDidMount(){
+    this.nameInput.focus(); 
   }
 
   verbMatched() {
@@ -23,17 +29,22 @@ export class MatchBlock extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }} >
-        <Input
+      <View style={ styles.matchContainer } >
+
+        <TextInput
+          ref={(input) => { this.nameInput = input; }} 
           placeholder={ this.props.target }
           onChangeText={ (text) => this.setState({ sentText: text }) }
           style={styles.guessVerb}
+          selectionColor={'white'}
         />
 
         <Button
           onPress={() => this.verbMatched() }
-          primary>
-          <Text> Tap to Check </Text>
+          primary
+          style={ styles.checkBtn }
+        >
+          <Text> Check </Text>
         </Button>
       </View>
     );
@@ -41,13 +52,28 @@ export class MatchBlock extends Component {
 }
 
 const styles = StyleSheet.create({
+  matchContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    backgroundColor: "darkorange"
+  },
   guessVerb: {
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "#999",
     margin: 10,
     padding: 10,
     fontSize: 25,
-    textTransform: "uppercase"    
+    textTransform: "uppercase",
+    textAlign: "center",
+    height: 80,
+    color: "#f2f2f2",
+    fontWeight: 'bold'
+  },
+  checkBtn: {
+    position: "absolute",
+    top: 25,
+    right: 0,
+    borderTopLeftRadius: 25,
+    borderBottomLeftRadius: 25    
   }
 });
