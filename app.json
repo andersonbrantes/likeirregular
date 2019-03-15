@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": " like_irregular",
+    "name": "LikeIrregular",
     "slug": "like-irregular",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -24,6 +24,9 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "app.likeirregular"
+    }    
   }
 }

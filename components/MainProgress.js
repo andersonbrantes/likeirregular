@@ -1,7 +1,18 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Text } from "native-base";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
+
+const styles = StyleSheet.create({
+  mainProgressContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection:"row",
+    marginTop: 80,
+    marginBottom: 50
+  }
+});
 
 export class MainProgress extends Component {
   constructor (props) {
@@ -15,7 +26,7 @@ export class MainProgress extends Component {
   
   render() {
     return (
-      <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection:"row", marginTop: 80, marginBottom: 50 }}>
+      <View style={ styles.mainProgressContainer }>
         <AnimatedCircularProgress
           size={150}
           width={10}

@@ -1,8 +1,34 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
-TextInput.defaultProps.selectionColor = 'white';
 
 import { Text, Input, Button } from "native-base";
+
+const styles = StyleSheet.create({
+  matchContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    backgroundColor: "darkorange"
+  },
+  guessVerb: {
+    margin: 10,
+    padding: 10,
+    fontSize: 25,
+    textTransform: "uppercase",
+    textAlign: "center",
+    height: 80,
+    color: "#f2f2f2",
+    fontWeight: 'bold'
+  },
+  checkBtn: {
+    position: "absolute",
+    top: 25,
+    right: 0,
+    borderTopLeftRadius: 25,
+    borderBottomLeftRadius: 25    
+  }
+});
 
 export class MatchBlock extends Component {
   constructor(props){
@@ -50,30 +76,3 @@ export class MatchBlock extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  matchContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    backgroundColor: "darkorange"
-  },
-  guessVerb: {
-    margin: 10,
-    padding: 10,
-    fontSize: 25,
-    textTransform: "uppercase",
-    textAlign: "center",
-    height: 80,
-    color: "#f2f2f2",
-    fontWeight: 'bold'
-  },
-  checkBtn: {
-    position: "absolute",
-    top: 25,
-    right: 0,
-    borderTopLeftRadius: 25,
-    borderBottomLeftRadius: 25    
-  }
-});

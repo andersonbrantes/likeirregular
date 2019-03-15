@@ -4,6 +4,32 @@ import { Text, Input, Left } from "native-base";
 
 import { MatchBlock } from "../components/MatchBlock";
 
+const styles = StyleSheet.create({
+  verbBlock: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",    
+    height: 80,
+    padding: 10
+  },
+  verbBlock1: {
+    backgroundColor: "darkturquoise",
+  },
+  verbBlock2: {
+    backgroundColor: "tomato",
+  },  
+  verbBlock3: {
+    backgroundColor: "darkslateblue",
+  },    
+  verbText: {
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 25,
+    textTransform: "uppercase",
+    fontWeight: "bold"    
+  }
+});
+
 export class AnswerBlock extends Component {
   constructor (props) {
     super(props);
@@ -56,29 +82,3 @@ export class AnswerBlock extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  verbBlock: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",    
-    height: 80,
-    padding: 10
-  },
-  verbBlock1: {
-    backgroundColor: "darkturquoise",
-  },
-  verbBlock2: {
-    backgroundColor: "tomato",
-  },  
-  verbBlock3: {
-    backgroundColor: "darkslateblue",
-  },    
-  verbText: {
-    textAlign: "center",
-    color: "#fff",
-    fontSize: 25,
-    textTransform: "uppercase",
-    fontWeight: "bold"    
-  }
-});
