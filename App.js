@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row" 
+    alignItems: "stretch",
+    flexDirection: "row"
   },
   nextBtnBlock: { 
     marginTop: -65,
@@ -116,8 +116,12 @@ export default class App extends Component {
         
         <Content>                    
           <ImageBackground source={require("./assets/england-04.jpg")} style={{width: "100%"}}>
+            <View>
+              <Text style={{fontSize: 30, color: '#fff', padding: 20, textAlign: 'center'}}>LikeIrregular</Text>
+            </View>
+
             <View style={ styles.scoreContainer } >
-              <LostVerbs lost={ this.state.lostVerbs } />            
+              <LostVerbs lost={ this.state.lostVerbs } />
 
               <MainProgress remainingVerbs={ this.state.activeVerbs.length } />
 

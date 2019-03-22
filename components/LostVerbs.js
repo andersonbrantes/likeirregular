@@ -20,9 +20,8 @@ const styles = StyleSheet.create({
   missText: {
     color: '#ffffff'
   },
-  missBlock: {
+  missBlock: {   
     padding: 5,
-    marginRight: 20,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

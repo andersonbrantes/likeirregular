@@ -4,12 +4,11 @@ import { Text } from "native-base";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 const styles = StyleSheet.create({
-  mainProgressContainer: {
+  mainProgressContainer: {   
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     flexDirection:"row",
-    marginTop: 80,
     marginBottom: 50
   }
 });

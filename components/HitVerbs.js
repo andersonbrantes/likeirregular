@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
   },
   hitBlock: {
     padding: 5,
-    marginRight: 20,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
