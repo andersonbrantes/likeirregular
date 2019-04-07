@@ -43,13 +43,7 @@ const styles = StyleSheet.create({
   },
 
   modalContent: {
-    backgroundColor: "red",
-    // height: 300,
-    // //padding: 22,
-    // //justifyContent: "center",
-    // //alignItems: "center",
-    // borderRadius: 4,
-    // borderColor: "rgba(0, 0, 0, 0.1)"  
+    backgroundColor: "red"
   },
   bottomModal: {
     justifyContent: "flex-end",
@@ -82,17 +76,10 @@ export default class App extends Component {
       lostVerbs: 0,
       hitVerbs: 0,
       isModalVisible: false,
-      visibleModal: null
+      visibleModal: null,
+      lastGuess: null
     };
   }
-
-  renderButton = (text, onPress) => (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.button}>
-        <Text>{text}</Text>
-      </View>
-    </TouchableOpacity>
-  );
 
   handleOnScroll = event => {
     this.setState({
@@ -130,16 +117,25 @@ export default class App extends Component {
     });
   }
 
-  hitOrMiss(result) {
-    if (result == true) {
+  updateResult(result) {
+    this.setState({
+      lastGuess: result
+    });    
+    
+    this.setState({ visibleModal: null });    
+  }
+
+  hitOrMiss() {
+    if (this.state.lastGuess == true) {
+    //if (result == true) {
       this.setState({ hitVerbs: this.state.hitVerbs + 1 });
     } else {
       this.setState({ lostVerbs: this.state.lostVerbs + 1 });
     }
   }
 
-  toggleModal() { 
-    this.setState({ isModalVisible: !this.state.isModalVisible });
+  showModal() { 
+    this.setState({ visibleModal: true });
   }
 
   render() {
@@ -180,7 +176,7 @@ export default class App extends Component {
             </View>
             
             <View style={ styles.nextBtnBlock }>
-              <Button onPress={() => this.toggleModal() } rounded primary>
+              <Button onPress={() => this.showModal() } rounded primary>
                 <Text> NEXT ONE </Text>
               </Button>
             </View>
@@ -192,11 +188,8 @@ export default class App extends Component {
                 Espaço destinado para as dicas sobre os tempos verbais. Dicas sobre como as 3 formas irão se formar.
               </Text>
 
-              {this.renderButton("Fancy modal!", () =>
-                this.setState({ visibleModal: 4 }),
-              )}
               <Modal
-                isVisible={this.state.visibleModal === 4}
+                isVisible={this.state.visibleModal === true}
                 backdropColor={'black'}
                 backdropOpacity={0.7}
                 animationIn={'zoomInUp'}
@@ -205,6 +198,7 @@ export default class App extends Component {
                 animationOutTiming={1000}
                 backdropTransitionInTiming={1000}
                 backdropTransitionOutTiming={1000}
+                onModalHide={ () => this.hitOrMiss() }
               >
                 <View style={styles.modalContent}>
                   <AnswerBlock
@@ -213,21 +207,20 @@ export default class App extends Component {
                     updateActiveVerb={ (v) => this.updateActiveVerb(v) }
                     updateVerbs={ (v) => this.updateVerbs(v)}
                     hitOrMiss={ (r) => this.hitOrMiss(r) }
+                    updateResult={ (r) => this.updateResult(r) }
                     remainingVerbs={ this.state.activeVerbs.length }
                   />          
-
-                  {this.renderButton("Close", () => this.setState({ visibleModal: null }))}
                 </View>
               </Modal>
               
-                    <AnswerBlock
-                      activeVerbs={ this.state.activeVerbs }
-                      activeVerb={ this.state.activeVerb }
-                      updateActiveVerb={ (v) => this.updateActiveVerb(v) }
-                      updateVerbs={ (v) => this.updateVerbs(v)}
-                      hitOrMiss={ (r) => this.hitOrMiss(r) }
-                      remainingVerbs={ this.state.activeVerbs.length }
-                    />
+              {/* <AnswerBlock
+                activeVerbs={ this.state.activeVerbs }
+                activeVerb={ this.state.activeVerb }
+                updateActiveVerb={ (v) => this.updateActiveVerb(v) }
+                updateVerbs={ (v) => this.updateVerbs(v)}
+                hitOrMiss={ (r) => this.hitOrMiss(r) }
+                remainingVerbs={ this.state.activeVerbs.length }
+              /> */}
 
               {/* <TipsBlock /> */}
             </View>

@@ -88,6 +88,7 @@ export class AnswerBlock extends Component {
                   key={key}
                   target={ activeVerb[key] }
                   hitOrMiss={ (r) => this.props.hitOrMiss(r) }
+                  updateResult={ (r) => this.props.updateResult(r) }
                 />
               ) :
               ( 

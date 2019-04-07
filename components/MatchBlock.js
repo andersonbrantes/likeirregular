@@ -48,7 +48,8 @@ export class MatchBlock extends Component {
     const targetVerb = this.props.target.toUpperCase();
     const result     = sentText === targetVerb;
 
-    this.props.hitOrMiss(result);
+    //this.props.hitOrMiss(result);
+    this.props.updateResult(result);
 
     return result;
   }
