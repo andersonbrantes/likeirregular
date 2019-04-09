@@ -43,12 +43,11 @@ export class MatchBlock extends Component {
     this.nameInput.focus(); 
   }
 
-  verbMatched() {
+  matchedVerb() {
     const sentText   = this.state.sentText.toUpperCase();
     const targetVerb = this.props.target.toUpperCase();
     const result     = sentText === targetVerb;
 
-    //this.props.hitOrMiss(result);
     this.props.updateResult(result);
 
     return result;
@@ -67,7 +66,7 @@ export class MatchBlock extends Component {
         />
 
         <Button
-          onPress={() => this.verbMatched() }
+          onPress={() => this.matchedVerb() }
           primary
           style={ styles.checkBtn }
         >

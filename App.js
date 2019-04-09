@@ -15,7 +15,6 @@ import Modal from "react-native-modal";
 
 const styles = StyleSheet.create({
   scoreContainer: {
-    // backgroundColor: "#000000",
     paddingBottom: 50,
     flex: 1,
     justifyContent: "center",
@@ -163,10 +162,6 @@ export default class App extends Component {
         
         <Content>                    
           <ImageBackground source={require("./assets/england-04.jpg")} style={{width: "100%", paddingTop: 20}}>
-            {/* <View>
-              <Text style={{fontSize: 30, color: '#fff', padding: 20, textAlign: 'center'}}>LikeIrregular</Text>
-            </View> */}
-
             <View style={ styles.scoreContainer } >
               <LostVerbs lost={ this.state.lostVerbs } />
 
@@ -206,7 +201,6 @@ export default class App extends Component {
                     activeVerb={ this.state.activeVerb }
                     updateActiveVerb={ (v) => this.updateActiveVerb(v) }
                     updateVerbs={ (v) => this.updateVerbs(v)}
-                    hitOrMiss={ (r) => this.hitOrMiss(r) }
                     updateResult={ (r) => this.updateResult(r) }
                     remainingVerbs={ this.state.activeVerbs.length }
                   />          
