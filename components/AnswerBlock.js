@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: "rgba(0, 0, 0, 0.1)",
     flexWrap: "wrap",
-    flexDirection: 'column',
-    alignItems: 'stretch'
+    flexDirection: "column",
+    alignItems: "stretch"
   },
   verbBlock: {
     flex: 1,

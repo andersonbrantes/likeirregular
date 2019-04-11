@@ -80,13 +80,13 @@ export default class App extends Component {
     };
   }
 
-  handleOnScroll = event => {
+  handleOnScroll = (event) => {
     this.setState({
       scrollOffset: event.nativeEvent.contentOffset.y,
     });
   };
 
-  handleScrollTo = p => {
+  handleScrollTo = (p) => {
     if (this.scrollViewRef) {
       this.scrollViewRef.scrollTo(p);
     }
@@ -125,7 +125,7 @@ export default class App extends Component {
   }
 
   hitOrMiss() {
-    if (this.state.lastGuess == true) {
+    if (this.state.lastGuess === true) {
     //if (result == true) {
       this.setState({ hitVerbs: this.state.hitVerbs + 1 });
     } else {
@@ -185,10 +185,10 @@ export default class App extends Component {
 
               <Modal
                 isVisible={this.state.visibleModal === true}
-                backdropColor={'black'}
+                backdropColor={"black"}
                 backdropOpacity={0.7}
-                animationIn={'zoomInUp'}
-                animationOut={'zoomOutDown'}
+                animationIn={"zoomInUp"}
+                animationOut={"zoomOutDown"}
                 animationInTiming={1000}
                 animationOutTiming={1000}
                 backdropTransitionInTiming={1000}
