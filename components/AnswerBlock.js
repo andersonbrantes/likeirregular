@@ -69,7 +69,7 @@ export class AnswerBlock extends Component {
 
   render() {
     const activeVerb = this.props.activeVerb;
-    const activeVerbTense = this.hiddenItem()[0];
+    const activeVerbTense = this.hiddenItem()[0];  
 
     return (
       <View style={ styles.container }>   
@@ -79,7 +79,7 @@ export class AnswerBlock extends Component {
           <Text >The End</Text> :
 
           Object.keys(activeVerb).map( (key) => {
-            const hiddenVerb = key === activeVerbTense;
+            const hiddenVerb = key === activeVerbTense;    
 
             return (                                                      
               hiddenVerb ?
@@ -88,6 +88,7 @@ export class AnswerBlock extends Component {
                   key={key}
                   target={ activeVerb[key] }
                   updateResult={ (r) => this.props.updateResult(r) }
+                  updateHiddenVerb={ (v) => this.props.updateHiddenVerb(v) }
                 />
               ) :
               ( 

@@ -49,6 +49,7 @@ export class MatchBlock extends Component {
     const result     = sentText === targetVerb;
 
     this.props.updateResult(result);
+    this.props.updateHiddenVerb('result');
 
     return result;
   }

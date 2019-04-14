@@ -34,12 +34,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     marginTop: -21 
   },
-  tipsText: {
-    paddingTop: 30,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 20
-  },
 
   modalContent: {
     backgroundColor: "red"
@@ -76,7 +70,8 @@ export default class App extends Component {
       hitVerbs: 0,
       isModalVisible: false,
       visibleModal: null,
-      lastGuess: null
+      lastGuess: null,
+      hiddenVerb: 'teste'
     };
   }
 
@@ -124,9 +119,14 @@ export default class App extends Component {
     this.setState({ visibleModal: null });    
   }
 
+  updateHiddenVerb(verb) {
+    this.setState({
+      hiddenVerb: verb
+    });
+  }
+
   hitOrMiss() {
     if (this.state.lastGuess === true) {
-    //if (result == true) {
       this.setState({ hitVerbs: this.state.hitVerbs + 1 });
     } else {
       this.setState({ lostVerbs: this.state.lostVerbs + 1 });
@@ -179,9 +179,34 @@ export default class App extends Component {
 
           <KeyboardAvoidingView behavior="padding" enabled>
             <View style={ styles.tipsBlockContainer }>
-              <Text style={ styles.tipsText }>
-                Espaço destinado para as dicas sobre os tempos verbais. Dicas sobre como as 3 formas irão se formar.
-              </Text>
+
+              <View style={{ 
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection:"column",
+                paddingTop: 40                
+               }}>
+                <View>
+                  { 
+                    this.state.lastGuess ?
+                    ( <Icon name="star" style={ { fontSize: 50, color: "yellow" } }/> ) :
+                    ( <Icon name="close" style={ { fontSize: 50, color: "red" } }/> )
+                  }
+                </View>
+
+                <Text>{ this.state.hiddenVerb }</Text>
+                {
+                  Object.keys(this.state.activeVerb).map( (key) => {
+
+                    return (
+                      <Text key={key} style={{ fontSize: 30 }}>
+                        { key } - { this.state.activeVerb[key] }
+                      </Text>
+                    )
+                  })
+                }
+              </View>
 
               <Modal
                 isVisible={this.state.visibleModal === true}
@@ -203,6 +228,7 @@ export default class App extends Component {
                     updateVerbs={ (v) => this.updateVerbs(v)}
                     updateResult={ (r) => this.updateResult(r) }
                     remainingVerbs={ this.state.activeVerbs.length }
+                    updateHiddenVerb={ (v) => this.updateHiddenVerb(v) }
                   />          
                 </View>
               </Modal>
