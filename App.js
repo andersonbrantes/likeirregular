@@ -111,18 +111,11 @@ export default class App extends Component {
     });
   }
 
-  updateResult(result) {
-    this.setState({
+  updateResult(result) {   
+    this.setState({ 
+      visibleModal: null,
       lastGuess: result
     });    
-    
-    this.setState({ visibleModal: null });    
-  }
-
-  updateHiddenVerb(verb) {
-    this.setState({
-      hiddenVerb: verb
-    });
   }
 
   hitOrMiss() {
@@ -142,22 +135,10 @@ export default class App extends Component {
       return <Expo.AppLoading />;
     }
 
+
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent>
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon name="menu" />
-            </Button>            
-          </Right>
+        <Header style={{ height: 37 }}>
         </Header>
         
         <Content>                    
@@ -187,6 +168,7 @@ export default class App extends Component {
                 flexDirection:"column",
                 paddingTop: 40                
                }}>
+
                 <View>
                   { 
                     this.state.lastGuess ?
@@ -195,12 +177,11 @@ export default class App extends Component {
                   }
                 </View>
 
-                <Text>{ this.state.hiddenVerb }</Text>
                 {
                   Object.keys(this.state.activeVerb).map( (key) => {
 
                     return (
-                      <Text key={key} style={{ fontSize: 30 }}>
+                      <Text key={key} style={[{ fontSize: 30 }, { color: this.state.hiddenVerb ? 'red' : 'green' }]}>
                         { key } - { this.state.activeVerb[key] }
                       </Text>
                     )
@@ -228,7 +209,6 @@ export default class App extends Component {
                     updateVerbs={ (v) => this.updateVerbs(v)}
                     updateResult={ (r) => this.updateResult(r) }
                     remainingVerbs={ this.state.activeVerbs.length }
-                    updateHiddenVerb={ (v) => this.updateHiddenVerb(v) }
                   />          
                 </View>
               </Modal>
