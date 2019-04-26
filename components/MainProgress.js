@@ -31,15 +31,18 @@ export class MainProgress extends Component {
           size={150}
           width={10}
           fill={ (this.props.remainingVerbs / this.state.totalVerbs) * 100}
-          tintColor="#00e0ff"
+          tintColor="#405DCF"
           onAnimationComplete={() => console.log("onAnimationComplete")}
           backgroundColor="#3d5875"
         >
           {
             (fill) => (
-              <Text style={{ fontSize: 40, color: "#f2f2f2" }} >
-                { this.props.remainingVerbs }
+              <View>
+              <Text style={{ fontSize: 50, color: "#f2f2f2" }} >
+                { this.props.remainingVerbs }00
               </Text>
+              <Text style={{ fontSize: 20, textAlign: "center", marginTop: -10, color: "#f2f2f2" }}>total</Text>
+              </View>
             )
           }
         </AnimatedCircularProgress>

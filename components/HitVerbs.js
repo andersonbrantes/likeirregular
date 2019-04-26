@@ -15,12 +15,15 @@ const styles = StyleSheet.create({
   },
   hitScore: {
     color: "white",
-    fontSize: 40
+    fontSize: 25,
+    marginTop: 5
   },
   hitText: {   
-    color: "#ffffff"
+    color: "#ffffff",
+    marginBottom: 10, 
   },
   hitBlock: {
+    marginTop: 5,
     padding: 5,
     flex: 1,
     justifyContent: "center",
@@ -38,7 +41,7 @@ export class HitVerbs extends Component {
         <View style={ styles.hitIcon } >
           <Icon name="star" style={ { color: "yellow" } }/>
         </View>        
-        <Text style={ styles.hitScore }>{ this.props.hit }</Text>
+        <Text style={ styles.hitScore }>{ this.props.hit }00</Text>
       </View>
     );
   }

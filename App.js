@@ -8,6 +8,7 @@ import { MainProgress } from "./components/MainProgress";
 import { AnswerBlock } from "./components/AnswerBlock";
 import { HitVerbs } from "./components/HitVerbs";
 import { LostVerbs } from "./components/LostVerbs";
+import { Slider } from "./components/Slider";
 
 import { verbs } from "./data/VerbsData";
 
@@ -15,11 +16,13 @@ import Modal from "react-native-modal";
 
 const styles = StyleSheet.create({
   scoreContainer: {
+    marginTop: -21,
     paddingBottom: 50,
     flex: 1,
     justifyContent: "center",
     alignItems: "stretch",
-    flexDirection: "row"
+    flexDirection: "row",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   nextBtnBlock: { 
     marginTop: -65,
@@ -44,18 +47,6 @@ const styles = StyleSheet.create({
   },
   scrollableModal: {
     height: 300,
-  },
-  scrollableModalContent1: {
-    height: 200,
-    backgroundColor: "orange",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  scrollableModalContent2: {
-    height: 200,
-    backgroundColor: "lightgreen",
-    alignItems: "center",
-    justifyContent: "center",
   }
 });
 
@@ -135,15 +126,15 @@ export default class App extends Component {
       return <Expo.AppLoading />;
     }
 
-
     return (
       <Container>
         <Header style={{ height: 37 }}>
         </Header>
         
         <Content>                    
-          <ImageBackground source={require("./assets/england-04.jpg")} style={{width: "100%", paddingTop: 20}}>
-            <View style={ styles.scoreContainer } >
+          <ImageBackground source={require("./assets/background-02.jpg")} style={{width: "100%", paddingTop: 20}}>
+            
+            <View style={ styles.scoreContainer } >                          
               <LostVerbs lost={ this.state.lostVerbs } />
 
               <MainProgress remainingVerbs={ this.state.activeVerbs.length } />
@@ -187,18 +178,20 @@ export default class App extends Component {
                     )
                   })
                 }
+
+                <Slider />                
               </View>
 
               <Modal
                 isVisible={this.state.visibleModal === true}
                 backdropColor={"black"}
-                backdropOpacity={0.7}
+                backdropOpacity={0.85}
                 animationIn={"zoomInUp"}
                 animationOut={"zoomOutDown"}
                 animationInTiming={1000}
                 animationOutTiming={1000}
-                backdropTransitionInTiming={1000}
-                backdropTransitionOutTiming={1000}
+                backdropTransitionInTiming={700}
+                backdropTransitionOutTiming={900}
                 onModalHide={ () => this.hitOrMiss() }
               >
                 <View style={styles.modalContent}>

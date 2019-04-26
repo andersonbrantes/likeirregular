@@ -15,12 +15,18 @@ const styles = StyleSheet.create({
   },  
   missScore: {
     color: "white",
-    fontSize: 40
+    fontSize: 25,
+    marginTop: 5
   },
   missText: {
-    color: "#ffffff"
+    color: "#ffffff",
+    marginBottom: 10,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
   },
   missBlock: {   
+    marginTop: 5,
     padding: 5,
     flex: 1,
     justifyContent: "center",
@@ -38,7 +44,7 @@ export class LostVerbs extends Component {
         <View style={ styles.missIcon } >
           <Icon name="close" style={ { color: "red" } }/>
         </View>        
-        <Text style={ styles.missScore }>{ this.props.lost }</Text>
+        <Text style={ styles.missScore }>{ this.props.lost }00</Text>
       </View> 
     );
   }
