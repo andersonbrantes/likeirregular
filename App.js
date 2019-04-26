@@ -50,6 +50,13 @@ const styles = StyleSheet.create({
   }
 });
 
+const randomBGs = [
+  require('./assets/background-01.jpg'),
+  require('./assets/background-02.jpg'),
+  require('./assets/background-03.jpg'),
+  require('./assets/background-04.jpg')
+];
+
 export default class App extends Component {
   constructor() {
     super();
@@ -132,7 +139,7 @@ export default class App extends Component {
         </Header>
         
         <Content>                    
-          <ImageBackground source={require("./assets/background-02.jpg")} style={{width: "100%", paddingTop: 20}}>
+          <ImageBackground source={randomBGs[Math.floor(Math.random()*randomBGs.length)]} style={{width: "100%", paddingTop: 20}}>
             
             <View style={ styles.scoreContainer } >                          
               <LostVerbs lost={ this.state.lostVerbs } />
@@ -179,7 +186,7 @@ export default class App extends Component {
                   })
                 }
 
-                <Slider />                
+                {/* <Slider />                 */}
               </View>
 
               <Modal
