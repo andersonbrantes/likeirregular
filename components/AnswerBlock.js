@@ -7,7 +7,7 @@ import { MatchBlock } from "../components/MatchBlock";
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "yellow",
-    height: 300,
+    height: 400,
     borderRadius: 4,
     borderColor: "rgba(0, 0, 0, 0.1)",
     flexWrap: "wrap",
@@ -19,20 +19,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",    
     height: 80,
-    padding: 10
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#F3F7F9'
   },
   verbBlock1: {
     backgroundColor: "darkturquoise",
   },
   verbBlock2: {
-    backgroundColor: "tomato",
+    backgroundColor: "#7F8D9F",
   },  
   verbBlock3: {
     backgroundColor: "darkslateblue",
   },    
   verbText: {
     textAlign: "center",
-    color: "#fff",
+    color: "#F3F7F9",
     fontSize: 25,
     textTransform: "uppercase",
     fontWeight: "bold"    
@@ -88,7 +90,6 @@ export class AnswerBlock extends Component {
                   key={key}
                   target={ activeVerb[key] }
                   updateResult={ (r) => this.props.updateResult(r) }
-                  updateHiddenVerb={ (v) => this.props.updateHiddenVerb(v) }
                 />
               ) :
               ( 

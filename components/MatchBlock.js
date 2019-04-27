@@ -9,16 +9,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    backgroundColor: "darkorange"
+    backgroundColor: "#2B3E49"
   },
   guessVerb: {
     margin: 10,
     padding: 10,
-    fontSize: 25,
-    textTransform: "uppercase",
     textAlign: "center",
     height: 80,
     color: "#f2f2f2",
+    fontSize: 30,
+    textDecorationLine: 'underline',
+    textDecorationColor: 'red',
+    textDecorationStyle: 'solid',
     fontWeight: 'bold'
   },
   checkBtn: {
@@ -49,7 +51,6 @@ export class MatchBlock extends Component {
     const result     = sentText === targetVerb;
 
     this.props.updateResult(result);
-    this.props.updateHiddenVerb('result');
 
     return result;
   }
@@ -60,10 +61,13 @@ export class MatchBlock extends Component {
 
         <TextInput
           ref={(input) => { this.nameInput = input; }} 
-          placeholder={ this.props.target }
+          // placeholder={ /* this.props.target */ }
           onChangeText={ (text) => this.setState({ sentText: text }) }
           style={styles.guessVerb}
-          selectionColor={'white'}
+          underlineColorAndroid="transparent"
+          spellCheck={false}
+          autoCorrect={false}
+          autoCapitalize="characters"
         />
 
         <Button

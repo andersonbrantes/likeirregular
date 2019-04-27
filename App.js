@@ -47,6 +47,24 @@ const styles = StyleSheet.create({
   },
   scrollableModal: {
     height: 300,
+  },
+  resultBlock: {
+    width: 300,
+    marginTop: 20,
+    paddingTop: 20,
+    borderTopColor: '#DDD',
+    borderTopWidth: 1
+  },
+  resultText: {
+    fontSize: 25,
+    textAlign: 'center'    
+  },
+  resultKey: {
+    position: 'absolute',
+    top: 3    
+  },
+  firstResultBlock: {
+    borderWidth: 0
   }
 });
 
@@ -179,9 +197,10 @@ export default class App extends Component {
                   Object.keys(this.state.activeVerb).map( (key) => {
 
                     return (
-                      <Text key={key} style={[{ fontSize: 30 }, { color: this.state.hiddenVerb ? 'red' : 'green' }]}>
-                        { key } - { this.state.activeVerb[key] }
-                      </Text>
+                      <View key={key} style={[styles.resultBlock , { color: this.state.hiddenVerb ? 'red' : 'green' }]}>
+                        <Text style={styles.resultKey}>{ key }</Text>
+                        <Text style={styles.resultText}>{ this.state.activeVerb[key] }</Text>
+                      </View>
                     )
                   })
                 }
