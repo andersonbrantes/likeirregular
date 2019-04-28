@@ -16,15 +16,16 @@ const styles = StyleSheet.create({
   hitScore: {
     color: "white",
     fontSize: 25,
-    marginTop: 5
+    marginTop: 7
   },
   hitText: {   
     color: "#ffffff",
     marginBottom: 10, 
   },
   hitBlock: {
-    marginTop: 5,
-    padding: 5,
+    marginTop: 132,
+    width: 100,
+    height: 112,    
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

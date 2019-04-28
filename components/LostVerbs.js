@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   missScore: {
     color: "white",
     fontSize: 25,
-    marginTop: 5
+    marginTop: 7
   },
   missText: {
     color: "#ffffff",
@@ -25,9 +25,10 @@ const styles = StyleSheet.create({
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10
   },
-  missBlock: {   
-    marginTop: 5,
-    padding: 5,
+  missBlock: {
+    marginTop: 132,
+    width: 100,
+    height: 112,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
