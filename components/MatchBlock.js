@@ -4,13 +4,6 @@ import { View, StyleSheet, TextInput } from "react-native";
 import { Text, Input, Button } from "native-base";
 
 const styles = StyleSheet.create({
-  matchContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    backgroundColor: "#2B3E49"
-  },
   guessVerb: {
     margin: 10,
     padding: 10,
@@ -23,60 +16,61 @@ const styles = StyleSheet.create({
     textDecorationStyle: 'solid',
     fontWeight: 'bold'
   },
-  checkBtn: {
-    position: "absolute",
-    top: 25,
-    right: 0,
-    borderTopLeftRadius: 25,
-    borderBottomLeftRadius: 25    
-  }
+  resultBlock: {
+    width: 300,
+    height: 40,
+    marginTop: 20,
+    marginBottom: 15,
+    paddingTop: 20,
+    borderTopColor: '#DDD',
+    borderTopWidth: 1
+  },  
+  resultText: {
+    fontSize: 20,
+    textAlign: 'center',
+    position: 'absolute',
+    top: -28,
+    right: 0
+  },
+  resultKey: {
+    width: 150,
+    height: 50,
+    position: 'absolute',
+    left: 0,
+    top: -26,
+    backgroundColor: 'white',
+    justifyContent: "center",
+    alignItems: "center"
+  }  
 });
 
 export class MatchBlock extends Component {
   constructor(props){
     super(props);
-  
-    this.state = {
-      sentText: ""
-    };
   }
 
   componentDidMount(){
-    this.nameInput.focus(); 
-  }
-
-  matchedVerb() {
-    const sentText   = this.state.sentText.toUpperCase();
-    const targetVerb = this.props.target.toUpperCase();
-    const result     = sentText === targetVerb;
-
-    this.props.updateResult(result);
-
-    return result;
+    this.nameInput.focus();
   }
 
   render() {
     return (
       <View style={ styles.matchContainer } >
 
-        <TextInput
-          ref={(input) => { this.nameInput = input; }} 
-          // placeholder={ /* this.props.target */ }
-          onChangeText={ (text) => this.setState({ sentText: text }) }
-          style={styles.guessVerb}
-          underlineColorAndroid="transparent"
-          spellCheck={false}
-          autoCorrect={false}
-          autoCapitalize="characters"
-        />
+        <View key={this.props.targetKey} style={styles.resultBlock}>
+          <Button bordered disabled style={styles.resultKey}><Text>{ this.props.targetKey }</Text></Button>
 
-        <Button
-          onPress={() => this.matchedVerb() }
-          primary
-          style={ styles.checkBtn }
-        >
-          <Text> Check </Text>
-        </Button>
+          <TextInput
+            ref={(input) => { this.nameInput = input; }} 
+            // placeholder={ /* this.props.target */ }
+            onBlur={ (text) => this.props.updateSentText(text) }
+            style={styles.resultText}
+            underlineColorAndroid="transparent"
+            spellCheck={false}
+            autoCorrect={false}
+            autoCapitalize="characters"
+          />          
+        </View>
       </View>
     );
   }

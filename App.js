@@ -37,34 +37,55 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     marginTop: -21 
   },
-
-  modalContent: {
-    backgroundColor: "red"
-  },
   bottomModal: {
     justifyContent: "flex-end",
     margin: 0,
-  },
+  },  
   scrollableModal: {
     height: 300,
   },
   resultBlock: {
     width: 300,
+    height: 40,
     marginTop: 20,
+    marginBottom: 15,
     paddingTop: 20,
     borderTopColor: '#DDD',
     borderTopWidth: 1
   },
   resultText: {
-    fontSize: 25,
-    textAlign: 'center'    
+    fontSize: 20,
+    textAlign: 'center',
+    position: 'absolute',
+    top: -28,
+    right: 0
+  },
+  resultTextError: {
+    fontSize: 20,
+    textAlign: 'center',
+    position: 'absolute',
+    top: -1,
+    right: 0,
+    color: 'red'
   },
   resultKey: {
+    width: 150,
+    height: 50,
     position: 'absolute',
-    top: 3    
+    top: -26,
+    backgroundColor: 'white',
+    justifyContent: "center",
+    alignItems: "center"
   },
   firstResultBlock: {
     borderWidth: 0
+  },
+  block1: { 
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection:"column",
+    paddingTop: 40                
   }
 });
 
@@ -177,15 +198,9 @@ export default class App extends Component {
           <KeyboardAvoidingView behavior="padding" enabled>
             <View style={ styles.tipsBlockContainer }>
 
-              <View style={{ 
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection:"column",
-                paddingTop: 40                
-               }}>
+              <View style={styles.block1}>
 
-                <View>
+                <View style={{ marginBottom: 20 }}>
                   { 
                     this.state.lastGuess ?
                     ( <Icon name="star" style={ { fontSize: 50, color: "yellow" } }/> ) :
@@ -198,8 +213,10 @@ export default class App extends Component {
 
                     return (
                       <View key={key} style={[styles.resultBlock , { color: this.state.hiddenVerb ? 'red' : 'green' }]}>
-                        <Text style={styles.resultKey}>{ key }</Text>
+
+                        <Button bordered disabled style={styles.resultKey}><Text>{ key }</Text></Button>
                         <Text style={styles.resultText}>{ this.state.activeVerb[key] }</Text>
+                        <Text style={styles.resultTextError}>{ this.state.activeVerb[key] }</Text>
                       </View>
                     )
                   })
@@ -220,7 +237,6 @@ export default class App extends Component {
                 backdropTransitionOutTiming={900}
                 onModalHide={ () => this.hitOrMiss() }
               >
-                <View style={styles.modalContent}>
                   <AnswerBlock
                     activeVerbs={ this.state.activeVerbs }
                     activeVerb={ this.state.activeVerb }
@@ -229,7 +245,6 @@ export default class App extends Component {
                     updateResult={ (r) => this.updateResult(r) }
                     remainingVerbs={ this.state.activeVerbs.length }
                   />          
-                </View>
               </Modal>
               
               {/* <AnswerBlock
