@@ -103,26 +103,24 @@ export class AnswerBlock extends Component {
     //return selectedItem;
   }
 
-  updateSentText(text) {
-    this.setState({
-      sentText: text
-    });
-  }
-
   updateActiveVerbTense(tense) {
     this.setState({
       activeVerbTense: tense
     });
   }
 
+  updateSentText(text) {
+    this.setState({
+      sentText: text
+    });
+  }
+
   matchedVerb() {
     const activeVerb = this.props.activeVerb;
 
-    const sentText   = this.state.sentText.toUpperCase();
+    const sentText   = this.state.sentText;
     const targetVerb = activeVerb[this.state.activeVerbTense].toUpperCase();
     const result     = sentText === targetVerb;
-console.warn(sentText);
-console.warn(this.state.activeVerbTense);
 
     this.props.updateResult(result);
 

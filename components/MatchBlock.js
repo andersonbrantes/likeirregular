@@ -62,8 +62,7 @@ export class MatchBlock extends Component {
 
           <TextInput
             ref={(input) => { this.nameInput = input; }} 
-            // placeholder={ /* this.props.target */ }
-            onBlur={ (text) => this.props.updateSentText(text) }
+            onChangeText={ (text) => this.props.updateSentText(text) }
             style={styles.resultText}
             underlineColorAndroid="transparent"
             spellCheck={false}
