@@ -39,7 +39,7 @@ export class MainProgress extends Component {
             (fill) => (
               <View>
                 <Text style={{ fontSize: 50, color: "#f2f2f2" }} >
-                  { this.props.remainingVerbs }00
+                  { this.props.remainingVerbs }
                 </Text>
                 <Text style={{ fontSize: 20, textAlign: "center", marginTop: -10, color: "#f2f2f2" }}>total</Text>
               </View>

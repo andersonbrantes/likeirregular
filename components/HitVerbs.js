@@ -42,7 +42,7 @@ export class HitVerbs extends Component {
         <View style={ styles.hitIcon } >
           <Icon name="star" style={ { color: "yellow" } }/>
         </View>        
-        <Text style={ styles.hitScore }>{ this.props.hit }00</Text>
+        <Text style={ styles.hitScore }>{ this.props.hit }</Text>
       </View>
     );
   }

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   nextBtnBlock: { 
-    marginTop: -65,
+    marginTop: 65,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

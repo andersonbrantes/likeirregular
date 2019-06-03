@@ -45,7 +45,7 @@ export class LostVerbs extends Component {
         <View style={ styles.missIcon } >
           <Icon name="close" style={ { color: "red" } }/>
         </View>        
-        <Text style={ styles.missScore }>{ this.props.lost }00</Text>
+        <Text style={ styles.missScore }>{ this.props.lost }</Text>
       </View> 
     );
   }

@@ -6,9 +6,16 @@ import { MatchBlock } from "../components/MatchBlock";
 
 
 const styles = StyleSheet.create({
-  container: {
+  containerWrapper: {
     backgroundColor: "white",
-    height: 400,
+    height: 450,
+    borderRadius: 25
+  },  
+  container: {
+    backgroundColor: "red",
+    borderWidth: 1,
+    borderColor: 'red',
+    height: 300,
     borderRadius: 25,
     borderColor: "rgba(0, 0, 0, 0.1)",
     flexWrap: "wrap",
@@ -56,7 +63,7 @@ const styles = StyleSheet.create({
   },
   checkBtn: {
     position: "absolute",
-    bottom: -22,
+    bottom: 20,
     left: 125,
     borderRadius: 25,
     //borderBottomLeftRadius: 25    
@@ -132,45 +139,47 @@ export class AnswerBlock extends Component {
     const activeVerbTense = this.state.activeVerbTense;  
 
     return (
-      <View style={ styles.container }>   
-        {                    
-          this.props.remainingVerbs === 0 ?
-          
-          <Text >The End</Text> :
+      <View style={ styles.containerWrapper }>
+        <View style={ styles.container }>   
+          {                    
+            this.props.remainingVerbs === 0 ?
+            
+            <Text >The End</Text> :
 
-          <View style={ styles.block1 }>
-            {
-              Object.keys(activeVerb).map( (key) => {
-                const hiddenVerb = key === activeVerbTense;    
+            <View style={ styles.block1 }>
+              {
+                Object.keys(activeVerb).map( (key) => {
+                  const hiddenVerb = key === activeVerbTense;    
 
-                return (                                                      
-                  hiddenVerb ?
-                  ( 
-                    <MatchBlock
-                      key={key}
-                      targetKey={ key }
-                      updateSentText={ (text) => this.updateSentText(text) }
-                    />
-                  ) :
-                  ( 
-                    <View key={key} style={styles.resultBlock}>
-                      <Button bordered disabled style={styles.resultKey}><Text>{ key }</Text></Button>
-                      <Text style={styles.resultText}>{ activeVerb[key] }</Text>
-                    </View>
-                  )                                                                                        
-                );
-              })
-            }
-          </View>
-        }
+                  return (                                                      
+                    hiddenVerb ?
+                    ( 
+                      <MatchBlock
+                        key={key}
+                        targetKey={ key }
+                        updateSentText={ (text) => this.updateSentText(text) }
+                      />
+                    ) :
+                    ( 
+                      <View key={key} style={styles.resultBlock}>
+                        <Button bordered disabled style={styles.resultKey}><Text>{ key }</Text></Button>
+                        <Text style={styles.resultText}>{ activeVerb[key] }</Text>
+                      </View>
+                    )                                                                                        
+                  );
+                })
+              }
+            </View>
+          }
 
-        <Button
-          onPress={() => this.matchedVerb() }
-          primary
-          style={ styles.checkBtn }
-        >
-          <Text> Tap to Check </Text>
-        </Button>        
+          <Button
+            onPress={() => this.matchedVerb() }
+            primary
+            style={ styles.checkBtn }
+          >
+            <Text> Tap to Check </Text>
+          </Button>        
+        </View>
       </View>
     );
   }
